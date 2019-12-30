@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="utilisateur">
+            <h2><span>Utilisateur</span> {{utilisateur.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Lastname</span></dt>
+                <dd>
+                    <span>{{utilisateur.lastname}}</span>
+                </dd>
+                <dt><span>Firstname</span></dt>
+                <dd>
+                    <span>{{utilisateur.firstname}}</span>
+                </dd>
+                <dt><span>Email</span></dt>
+                <dd>
+                    <span>{{utilisateur.email}}</span>
+                </dd>
+                <dt><span>Linkedin</span></dt>
+                <dd>
+                    <span>{{utilisateur.linkedin}}</span>
+                </dd>
+                <dt><span>Googleplus</span></dt>
+                <dd>
+                    <span>{{utilisateur.googleplus}}</span>
+                </dd>
+                <dt><span>Role</span></dt>
+                <dd>
+                    <span>{{utilisateur.role}}</span>
+                </dd>
+                <dt><span>Qcm</span></dt>
+                <dd>
+                    <div *ngIf="utilisateur.qcmId">
+                        <a [routerLink]="['/qcm', utilisateur.qcmId, 'view']">{{utilisateur.qcmId}}</a>
+                    </div>
+                </dd>
+                <dt><span>Qcm Test</span></dt>
+                <dd>
+                    <div *ngIf="utilisateur.qcmTestId">
+                        <a [routerLink]="['/qcm-test', utilisateur.qcmTestId, 'view']">{{utilisateur.qcmTestId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/utilisateur', utilisateur.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

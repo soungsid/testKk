@@ -1,0 +1,56 @@
+{
+    "name": "QcmTest",
+    "fields": [
+        {
+            "fieldName": "dateDebut",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateFin",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "score",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "highScore",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "qcm",
+            "otherEntityRelationshipName": "qcmTest",
+            "relationshipName": "idQcm"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "utilisateur",
+            "otherEntityRelationshipName": "qcmTest",
+            "relationshipName": "idUtilisateur"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "qcmTestResponse",
+            "otherEntityRelationshipName": "idQcmTest",
+            "relationshipName": "qcmTestResponse",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191230221243",
+    "entityTableName": "qcm_test",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
