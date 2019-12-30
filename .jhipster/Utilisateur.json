@@ -1,0 +1,67 @@
+{
+    "name": "Utilisateur",
+    "fields": [
+        {
+            "fieldName": "lastname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "firstname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "linkedin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "googleplus",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "role",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "country",
+            "otherEntityRelationshipName": "utilisateur",
+            "relationshipName": "idCountry"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "societeAbonne",
+            "otherEntityRelationshipName": "utilisateur",
+            "relationshipName": "idSociete"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "qcm",
+            "otherEntityRelationshipName": "createBy",
+            "relationshipName": "qcm",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "qcmTest",
+            "otherEntityRelationshipName": "idUtilisateur",
+            "relationshipName": "qcmTest",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191230221245",
+    "entityTableName": "utilisateur",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

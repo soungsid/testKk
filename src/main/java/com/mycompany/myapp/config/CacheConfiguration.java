@@ -42,6 +42,31 @@ public class CacheConfiguration {
             createCache(cm, com.mycompany.myapp.domain.User.class.getName());
             createCache(cm, com.mycompany.myapp.domain.Authority.class.getName());
             createCache(cm, com.mycompany.myapp.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.mycompany.myapp.domain.Tag.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Categorie.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Qcm.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Qcm.class.getName() + ".createBies");
+            createCache(cm, com.mycompany.myapp.domain.Qcm.class.getName() + ".idCategories");
+            createCache(cm, com.mycompany.myapp.domain.QcmQuestion.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.QcmQuestion.class.getName() + ".idQcms");
+            createCache(cm, com.mycompany.myapp.domain.QcmQuestionTag.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.QcmQuestionTag.class.getName() + ".idQcmQuestions");
+            createCache(cm, com.mycompany.myapp.domain.QcmQuestionTag.class.getName() + ".idTags");
+            createCache(cm, com.mycompany.myapp.domain.QcmReponse.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.QcmReponse.class.getName() + ".idQcmQuestions");
+            createCache(cm, com.mycompany.myapp.domain.QcmTest.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.QcmTest.class.getName() + ".idQcms");
+            createCache(cm, com.mycompany.myapp.domain.QcmTest.class.getName() + ".idUtilisateurs");
+            createCache(cm, com.mycompany.myapp.domain.QcmTestResponse.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.QcmTestResponse.class.getName() + ".idQcmTests");
+            createCache(cm, com.mycompany.myapp.domain.QcmTestResponse.class.getName() + ".idQcmQuestions");
+            createCache(cm, com.mycompany.myapp.domain.QcmTestResponse.class.getName() + ".idQcmReponses");
+            createCache(cm, com.mycompany.myapp.domain.Utilisateur.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Utilisateur.class.getName() + ".idCountries");
+            createCache(cm, com.mycompany.myapp.domain.Utilisateur.class.getName() + ".idSocietes");
+            createCache(cm, com.mycompany.myapp.domain.SocieteAbonne.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.CarnetAdresse.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Country.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

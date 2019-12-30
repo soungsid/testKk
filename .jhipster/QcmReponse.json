@@ -1,0 +1,51 @@
+{
+    "name": "QcmReponse",
+    "fields": [
+        {
+            "fieldName": "reponseText",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "reponseImage",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "reponseNombre",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "correct",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "poids",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "qcmQuestion",
+            "otherEntityRelationshipName": "qcmReponse",
+            "relationshipName": "idQcmQuestion"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "qcmTestResponse",
+            "otherEntityRelationshipName": "idQcmReponse",
+            "relationshipName": "qcmTestResponse",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191230221242",
+    "entityTableName": "qcm_reponse",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

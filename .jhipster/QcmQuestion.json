@@ -1,0 +1,61 @@
+{
+    "name": "QcmQuestion",
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "TypeQuestion",
+            "fieldValues": "YES_NO,CHOIX_MULTIPLE,CHOIX_IMAGE,CHAMPS_LIBRE"
+        },
+        {
+            "fieldName": "explication",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "qcm",
+            "otherEntityRelationshipName": "qcmQuestion",
+            "relationshipName": "idQcm"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "qcmQuestionTag",
+            "otherEntityRelationshipName": "idQcmQuestion",
+            "relationshipName": "qcmQuestionTag",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "qcmReponse",
+            "otherEntityRelationshipName": "idQcmQuestion",
+            "relationshipName": "qcmReponse",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "qcmTestResponse",
+            "otherEntityRelationshipName": "idQcmQuestion",
+            "relationshipName": "qcmTestResponse",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191230221240",
+    "entityTableName": "qcm_question",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,71 @@
+<div>
+    <h2 id="page-heading">
+        <span>Qcms</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-qcm" [routerLink]="['/qcm/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create a new Qcm
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="qcms?.length === 0">
+        <span>No qcms found</span>
+    </div>
+    <div class="table-responsive" *ngIf="qcms?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="name"><span>Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="nbQuestion"><span>Nb Question</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="privee"><span>Privee</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="qcmQuestionId"><span>Qcm Question</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="qcmTestId"><span>Qcm Test</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let qcm of qcms ;trackBy: trackId">
+                <td><a [routerLink]="['/qcm', qcm.id, 'view' ]">{{qcm.id}}</a></td>
+                <td>{{qcm.name}}</td>
+                <td>{{qcm.nbQuestion}}</td>
+                <td>{{qcm.privee}}</td>
+                <td>
+                    <div *ngIf="qcm.qcmQuestionId">
+                        <a [routerLink]="['/qcm-question', qcm.qcmQuestionId , 'view' ]" >{{qcm.qcmQuestionId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="qcm.qcmTestId">
+                        <a [routerLink]="['/qcm-test', qcm.qcmTestId , 'view' ]" >{{qcm.qcmTestId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/qcm', qcm.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/qcm', qcm.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(qcm)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+{
+    "name": "SocieteAbonne",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateAbonnement",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "logo",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "utilisateur",
+            "otherEntityRelationshipName": "idSociete",
+            "relationshipName": "utilisateur",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191230221246",
+    "entityTableName": "societe_abonne",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

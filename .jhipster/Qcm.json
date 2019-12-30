@@ -1,0 +1,60 @@
+{
+    "name": "Qcm",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": 3
+        },
+        {
+            "fieldName": "nbQuestion",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "privee",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "utilisateur",
+            "otherEntityRelationshipName": "qcm",
+            "relationshipName": "createBy"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "categorie",
+            "otherEntityRelationshipName": "qcm",
+            "relationshipName": "idCategorie"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "qcmQuestion",
+            "otherEntityRelationshipName": "idQcm",
+            "relationshipName": "qcmQuestion",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "qcmTest",
+            "otherEntityRelationshipName": "idQcm",
+            "relationshipName": "qcmTest",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191230221239",
+    "entityTableName": "qcm",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
